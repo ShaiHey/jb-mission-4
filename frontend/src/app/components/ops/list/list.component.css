@@ -1,0 +1,69 @@
+#list {
+  font-family: 'Roboto', Arial, sans-serif;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+#list input[type="text"] {
+  width: 70%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#list input[type="text"]:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+#list button {
+  padding: 12px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+#list button:hover {
+  background-color: #2980b9;
+}
+
+#cardsContainer {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+#cardsContainer p {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 0;
+  color: #95a5a6;
+  font-size: 18px;
+  font-style: italic;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px dashed #ddd;
+}
+
+@media (max-width: 600px) {
+  #list input[type="text"] {
+    width: 65%;
+  }
+  
+  #cardsContainer {
+    grid-template-columns: 1fr;
+  }
+}

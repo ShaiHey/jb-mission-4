@@ -1,0 +1,12 @@
+<div id="operation" [ngClass]="operation()?.type">
+  <h2>{{ operation()?.type }}</h2>
+  <span><strong>Account Number:</strong> {{ operation()?.accountNumber }}</span>
+  <p>Amount: {{ operation()?.data?.amount }}$</p>
+
+  @if (operation()?.type === 'loan') {
+    <div class="loan-details">
+      <small><strong>Interest Rate:</strong> {{operation()?.data?.interest}}%</small>
+      <small><strong>Payment Term:</strong> {{operation()?.data?.payments}} monthly payments</small>
+    </div>
+  }
+</div>
