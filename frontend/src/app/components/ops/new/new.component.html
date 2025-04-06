@@ -1,0 +1,65 @@
+<div id="newBook">
+    <form [formGroup]="newForm" (ngSubmit)="addOps()">
+        <label for="type">Type operation: </label>
+        <select formControlName="type">
+            <option value="" selected disabled>Please select a type operation</option>
+            <option value="deposit">Deposit</option>
+            <option value="withdraw">Withdraw</option>
+            <option value="loan">Loan</option>
+        </select>
+        <div [hidden]="newForm.controls.type.valid || !newForm.dirty">
+            @if (newForm.controls.type.errors?.['required']) {
+                <span class="error">Target is required</span>
+            }
+        </div>
+
+        <label for="type">Account number: </label>
+        <input formControlName="accountNumber" placeholder="Please enter account number">
+        <div [hidden]="newForm.controls.accountNumber.valid || !newForm.controls.accountNumber.dirty">
+            @if (newForm.controls.accountNumber.errors?.['required']) {
+                <span class="error">Account Number is required</span>
+            }
+            @else if (newForm.controls.accountNumber.errors?.['minlength']) {
+                <span class="error">Account Number must be at least 4 characters long</span>
+            }
+        </div>
+
+        <label for="type">Amount: </label>
+        <input formControlName="amount" placeholder="Please enter amount" type="number">
+        <div [hidden]="newForm.controls.amount.valid || !newForm.controls.amount.dirty">
+            @if (newForm.controls.amount.errors?.['required']) {
+                <span class="error">Amount is required</span>
+            }
+            @else if (newForm.controls.amount.errors?.['minlength']) {
+                <span class="error">Amount must be positive</span>
+            }
+        </div>
+
+        @if (newForm.get('type')?.value === "loan") {
+
+            <label for="type">Interest: </label>
+            <input formControlName="interest" placeholder="Please enter interest" type="number">
+            <div [hidden]="newForm.controls.interest.valid || !newForm.controls.interest.dirty">
+                @if (newForm.controls.interest.errors?.['required']) {
+                    <span class="error">Interest is required</span>
+                }
+                @else if (newForm.controls.interest.errors?.['minlength']) {
+                    <span class="error">Interest must be positive</span>
+                }
+            </div>
+
+            <label for="type">Payments: </label>
+            <input formControlName="payments" placeholder="Please enter payments" type="number">
+            <div [hidden]="newForm.controls.payments.valid || !newForm.controls.payments.dirty">
+                @if (newForm.controls.payments.errors?.['required']) {
+                    <span class="error">Payments is required</span>
+                }
+                @else if (newForm.controls.payments.errors?.['minlength']) {
+                    <span class="error">Payments must be positive</span>
+                }
+            </div>
+        }
+
+        <button>Add Operation</button>
+    </form>
+</div>

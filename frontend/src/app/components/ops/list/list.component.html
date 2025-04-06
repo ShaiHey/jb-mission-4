@@ -1,0 +1,21 @@
+<div id="list">
+  <div class="search-container">
+    <input 
+      type="text" 
+      [(ngModel)]="accountSearch" 
+      placeholder="Search by account number..."
+    >
+    <button (click)="searchOps()">
+      Search
+    </button>
+  </div>
+
+  <div id="cardsContainer">
+    @for (operation of list(); track operation.id) {
+      <app-card [operation]="operation"></app-card>
+    }
+    @empty {
+      <p>No operations found for this account</p>
+    }
+  </div>
+</div>
