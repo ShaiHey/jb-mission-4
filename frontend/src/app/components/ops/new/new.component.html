@@ -30,7 +30,7 @@
             @if (newForm.controls.amount.errors?.['required']) {
                 <span class="error">Amount is required</span>
             }
-            @else if (newForm.controls.amount.errors?.['minlength']) {
+            @else if (newForm.controls.amount.errors?.['min']) {
                 <span class="error">Amount must be positive</span>
             }
         </div>
@@ -43,7 +43,7 @@
                 @if (newForm.controls.interest.errors?.['required']) {
                     <span class="error">Interest is required</span>
                 }
-                @else if (newForm.controls.interest.errors?.['minlength']) {
+                @else if (newForm.controls.interest.errors?.['min']) {
                     <span class="error">Interest must be positive</span>
                 }
             </div>
@@ -54,7 +54,7 @@
                 @if (newForm.controls.payments.errors?.['required']) {
                     <span class="error">Payments is required</span>
                 }
-                @else if (newForm.controls.payments.errors?.['minlength']) {
+                @else if (newForm.controls.payments.errors?.['min']) {
                     <span class="error">Payments must be positive</span>
                 }
             </div>

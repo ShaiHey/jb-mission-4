@@ -9,7 +9,7 @@ export const newOpsValidator = Joi.object({
     type: Joi.string().valid('withdraw', 'deposit', 'loan').required(),
     data: Joi.object({
         amount: Joi.number().min(1).required(),
-        interest: Joi.number().min(1).optional(),
-        payments: Joi.number().min(1).optional(),
+        interest: Joi.number().min(0).optional(),
+        payments: Joi.number().min(0).optional(),
     })
 })

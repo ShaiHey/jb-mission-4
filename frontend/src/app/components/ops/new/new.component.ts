@@ -30,10 +30,12 @@ export class NewComponent {
       Validators.min(1)
     ]),
     interest: new FormControl(0, [
-      Validators.required
+      Validators.required,
+      Validators.min(0)
     ]),
     payments: new FormControl(0, [
-      Validators.required
+      Validators.required,
+      Validators.min(0)
     ]),
   })
 
